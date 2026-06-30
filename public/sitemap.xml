@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://vibe-trading.space/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://vibe-trading.space/pricing</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vibe-trading.space/docs</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vibe-trading.space/source-notes</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vibe-trading.space/faq</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vibe-trading.space/privacy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://vibe-trading.space/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://vibe-trading.space/changelog</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>

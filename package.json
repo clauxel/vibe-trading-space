@@ -1,0 +1,31 @@
+{
+  "name": "vibe-trading-space",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "build:worker": "npm run build",
+    "preview": "vite preview",
+    "start": "vite preview --host 127.0.0.1",
+    "test": "node --test test/public-seo-assets.test.mjs test/stateless-checkout.test.mjs",
+    "cloudflare:worker:dev": "wrangler dev",
+    "cloudflare:worker:deploy": "wrangler deploy",
+    "cloudflare:pages:deploy": "npm run build && wrangler pages deploy dist --project-name vibe-trading-space",
+    "prod:inspect": "node scripts/inspect-production-analytics.mjs --skip-health"
+  },
+  "dependencies": {
+    "lucide-react": "^0.543.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.10",
+    "wrangler": "^4.86.0"
+  }
+}

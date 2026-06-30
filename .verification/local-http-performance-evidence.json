@@ -1,0 +1,114 @@
+{
+  "collectedAt": "2026-06-29T08:29:52.314Z",
+  "http": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 4114,
+      "elapsedMs": 18,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    },
+    {
+      "path": "/pricing/",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 4114,
+      "elapsedMs": 3,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    },
+    {
+      "path": "/docs/",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 4114,
+      "elapsedMs": 1,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    },
+    {
+      "path": "/source-notes/",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 4114,
+      "elapsedMs": 2,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    },
+    {
+      "path": "/faq/",
+      "status": 200,
+      "contentType": "text/html",
+      "bytes": 4114,
+      "elapsedMs": 1,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 71,
+      "elapsedMs": 1,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "contentType": "text/xml",
+      "bytes": 1014,
+      "elapsedMs": 0,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 794,
+      "elapsedMs": 1,
+      "hasVibeTrading": true,
+      "hasOldProject": false
+    }
+  ],
+  "assets": [
+    {
+      "file": "dist/assets/index-BRH04L8P.js",
+      "bytes": 212807,
+      "gzipBytes": 66978
+    },
+    {
+      "file": "dist/assets/index-BXJkhrxf.css",
+      "bytes": 8063,
+      "gzipBytes": 2409
+    }
+  ],
+  "publicAssets": [
+    {
+      "file": "public/upstream-assets/feature-cross-market-data-backtesting.jpg",
+      "bytes": 288845
+    },
+    {
+      "file": "public/upstream-assets/feature-multi-agent-trading-teams.jpg",
+      "bytes": 266652
+    },
+    {
+      "file": "public/upstream-assets/feature-self-improving-trading-agent.jpg",
+      "bytes": 300693
+    },
+    {
+      "file": "public/upstream-assets/feature-shadow-account.jpg",
+      "bytes": 238268
+    }
+  ],
+  "performanceGate": {
+    "mode": "fallback_local",
+    "jsGzipBudgetBytes": 500000,
+    "cssGzipBudgetBytes": 150000,
+    "largestAssetBudgetBytes": 1048576,
+    "passed": true
+  }
+}

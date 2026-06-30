@@ -1,0 +1,15 @@
+/pricing /index.html 200
+/pricing/* /index.html 200
+/docs /index.html 200
+/docs/* /index.html 200
+/source-notes /index.html 200
+/source-notes/* /index.html 200
+/faq /index.html 200
+/faq/* /index.html 200
+/privacy /index.html 200
+/privacy/* /index.html 200
+/terms /index.html 200
+/terms/* /index.html 200
+/changelog /index.html 200
+/changelog/* /index.html 200
+/* /index.html 200

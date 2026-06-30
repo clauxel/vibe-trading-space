@@ -1,0 +1,17 @@
+# Vibe-Trading Space
+
+Vibe-Trading Space is an independent hosted workflow planner and SaaS companion for the open-source Vibe-Trading project.
+
+Canonical site: https://vibe-trading.space/
+Pricing: https://vibe-trading.space/pricing/
+Docs: https://vibe-trading.space/docs/
+Source notes: https://vibe-trading.space/source-notes/
+Support: support@aigeamy.com
+
+Core facts:
+- Product category: finance research workflow planner.
+- Upstream project: HKUDS/Vibe-Trading, MIT License.
+- Upstream package: vibe-trading-ai.
+- Inputs: trading prompt, market, horizon, workflow type, and risk assumptions.
+- Outputs: sample run command, data-route assumptions, validation checklist, and paid workspace generation path.
+- Limit: research and planning only; this site does not hold funds or execute trades.

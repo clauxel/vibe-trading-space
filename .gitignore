@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.wrangler/
+data/
+exports/
+*.tsbuildinfo
+.DS_Store
+.env.*
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+*.log
+temp.txt
+multica.config.json
+genericagent.config.json
+openclaw-launch.config.json

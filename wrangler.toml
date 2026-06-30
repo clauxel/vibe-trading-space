@@ -1,0 +1,30 @@
+name = "vibe-trading-space"
+main = "worker/index.js"
+compatibility_date = "2026-05-01"
+workers_dev = false
+routes = [
+  { pattern = "vibe-trading.space/*", zone_name = "vibe-trading.space" },
+  { pattern = "www.vibe-trading.space/*", zone_name = "vibe-trading.space" }
+]
+
+[vars]
+APP_ORIGIN = "https://vibe-trading.space"
+PAYMENT_PROVIDER = "polar"
+POLAR_PAY_CURRENCY = "USD"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vibe_trading_space"
+database_id = "00000000-0000-0000-0000-000000000000"
+
+[build]
+command = "npm run build:worker"
+watch_dir = "src"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = [
+  "/*"
+]

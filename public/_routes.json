@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "include": [
+    "/",
+    "/pricing",
+    "/pricing/*",
+    "/docs",
+    "/docs/*",
+    "/source-notes",
+    "/source-notes/*",
+    "/faq",
+    "/faq/*",
+    "/privacy",
+    "/privacy/*",
+    "/terms",
+    "/terms/*",
+    "/changelog",
+    "/changelog/*",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/llms.txt",
+    "/api/*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/favicon.svg"
+  ]
+}
