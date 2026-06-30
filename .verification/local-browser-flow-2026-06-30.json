@@ -1,0 +1,65 @@
+{
+  "homeState": {
+    "h1": "Turn a trading hunch into a safer Vibe-Trading run plan before you launch it.",
+    "hasPlanner": true,
+    "primaryButtons": [
+      "View packages",
+      "Read planner docs",
+      "Generate full workspace pack",
+      "Privacy",
+      "Terms",
+      "Changelog"
+    ],
+    "title": "Vibe-Trading Space - Safer AI Trading Research Run Planner",
+    "trustCount": 4,
+    "url": "http://127.0.0.1:5177/"
+  },
+  "viewPackagesCount": 1,
+  "pricingAnnual": {
+    "activeBilling": "Annual",
+    "checkoutButtons": [
+      "Checkout Starter annual",
+      "Checkout Pro annual",
+      "Checkout Enterprise annual"
+    ],
+    "dueTexts": [
+      "$54 due today, billed yearly",
+      "$174 due today, billed yearly",
+      "$354 due today, billed yearly"
+    ],
+    "h1": "Choose a Vibe-Trading planning package.",
+    "url": "http://127.0.0.1:5177/pricing/"
+  },
+  "pricingMonthly": {
+    "activeBilling": "Monthly",
+    "checkoutButtons": [
+      "Checkout Starter monthly",
+      "Checkout Pro monthly",
+      "Checkout Enterprise monthly"
+    ],
+    "dueTexts": [
+      "$9 due today",
+      "$29 due today",
+      "$59 due today"
+    ]
+  },
+  "checkoutState": {
+    "buttons": [
+      "Checkout Starter annual",
+      "Change package",
+      "Privacy",
+      "Terms",
+      "Changelog"
+    ],
+    "h1": "Confirm your Vibe-Trading planning package.",
+    "noRenewal": true,
+    "url": "http://127.0.0.1:5177/checkout/?plan=starter&billing=annual"
+  },
+  "notFoundState": {
+    "h1": "Page not found",
+    "text": "404Page not foundThis route is not part of the public Vibe-Trading Space planner. Return to the planner or pricing page.Back to planner",
+    "url": "http://127.0.0.1:5177/missing-page/"
+  },
+  "collectedAt": "2026-06-30T15:59:57.190Z",
+  "browser": "codex_in_app_browser_local"
+}

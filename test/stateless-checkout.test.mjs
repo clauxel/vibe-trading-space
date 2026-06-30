@@ -109,6 +109,28 @@ test('checkout API exposes a clear configuration blocker when Polar is missing',
   assert.match(payload.message, /not configured/i)
 })
 
+test('canonical redirects production HTTP but keeps local Worker preview usable', async () => {
+  const productionResponse = await handleCloudflareRequest(
+    new Request('http://vibe-trading.space/pricing/'),
+    {
+      APP_ORIGIN: 'https://vibe-trading.space',
+      ASSETS: createAssetEnv().ASSETS,
+    },
+  )
+  assert.equal(productionResponse.status, 301)
+  assert.equal(productionResponse.headers.get('Location'), 'https://vibe-trading.space/pricing/')
+
+  const localResponse = await handleCloudflareRequest(
+    new Request('http://127.0.0.1:8789/api/runtime'),
+    {
+      APP_ORIGIN: 'https://vibe-trading.space',
+    },
+  )
+  assert.equal(localResponse.status, 200)
+  const payload = await localResponse.json()
+  assert.equal(payload.paymentProvider, 'polar')
+})
+
 test('known SPA routes render as 200 but unknown routes keep a real 404', async () => {
   const env = createAssetEnv()
 
@@ -117,6 +139,12 @@ test('known SPA routes render as 200 but unknown routes keep a real 404', async 
   const pricingHtml = await pricingResponse.text()
   assert.match(pricingHtml, /Pricing for Vibe-Trading workflow planning packs/)
   assert.match(pricingHtml, /<meta name="robots" content="index,follow">/)
+
+  const checkoutResponse = await handleCloudflareRequest(createGetRequest('/checkout/?plan=starter&billing=annual'), env)
+  assert.equal(checkoutResponse.status, 200)
+  const checkoutHtml = await checkoutResponse.text()
+  assert.match(checkoutHtml, /Checkout handoff \| Vibe-Trading Space/)
+  assert.match(checkoutHtml, /<meta name="robots" content="noindex,follow">/)
 
   const missingResponse = await handleCloudflareRequest(createGetRequest('/missing-page/'), env)
   assert.equal(missingResponse.status, 404)

@@ -4,6 +4,8 @@
     "/",
     "/pricing",
     "/pricing/*",
+    "/checkout",
+    "/checkout/*",
     "/docs",
     "/docs/*",
     "/source-notes",

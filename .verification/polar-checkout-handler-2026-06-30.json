@@ -1,0 +1,21 @@
+{
+  "collectedAt": "2026-06-30T16:05:10.518Z",
+  "source": "worker_handler_with_keychain_polar_checkout_urls",
+  "status": 200,
+  "ok": true,
+  "paymentProvider": "polar",
+  "checkoutUrlHost": "buy.polar.sh",
+  "planId": "pro:annual",
+  "billing": "annual",
+  "amountCents": 17400,
+  "currency": "USD",
+  "checkoutUrlValueRedacted": true,
+  "keychainServices": [
+    "POLAR_CHECKOUT_URL_STARTER_ANNUAL",
+    "POLAR_CHECKOUT_URL_STARTER_MONTHLY",
+    "POLAR_CHECKOUT_URL_PRO_ANNUAL",
+    "POLAR_CHECKOUT_URL_PRO_MONTHLY",
+    "POLAR_CHECKOUT_URL_ENTERPRISE_ANNUAL",
+    "POLAR_CHECKOUT_URL_ENTERPRISE_MONTHLY"
+  ]
+}

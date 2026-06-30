@@ -21,6 +21,30 @@ export const seoPageList = [
     robots: 'index,follow',
   },
   {
+    path: '/checkout',
+    title: 'Checkout handoff | Vibe-Trading Space',
+    h1: 'Confirm your Vibe-Trading planning package.',
+    description:
+      'Review the selected Vibe-Trading Space package and continue through the product-domain Polar checkout handoff.',
+    robots: 'noindex,follow',
+  },
+  {
+    path: '/checkout/success',
+    title: 'Checkout success | Vibe-Trading Space',
+    h1: 'Checkout received.',
+    description:
+      'Return page for successful Vibe-Trading Space checkout sessions and next-step planning support.',
+    robots: 'noindex,follow',
+  },
+  {
+    path: '/checkout/cancel',
+    title: 'Checkout canceled | Vibe-Trading Space',
+    h1: 'Checkout was canceled.',
+    description:
+      'Return page for canceled Vibe-Trading Space checkout sessions with package selection links.',
+    robots: 'noindex,follow',
+  },
+  {
     path: '/docs',
     title: 'Vibe-Trading Space docs: planner inputs, outputs, and payment boundary',
     h1: 'Vibe-Trading Space workflow docs',

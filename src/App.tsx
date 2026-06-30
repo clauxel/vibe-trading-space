@@ -161,6 +161,10 @@ function getPlanAmount(plan: (typeof pricingPlans)[number], billingCycle: Billin
     : plan.monthlyAmountCents
 }
 
+function getQueryParam(name: string) {
+  return new URLSearchParams(window.location.search).get(name)
+}
+
 function navigateTo(path: string) {
   window.history.pushState(null, '', path)
   window.dispatchEvent(new PopStateEvent('popstate'))
@@ -423,6 +427,72 @@ function App() {
     )
   }
 
+  function renderCheckout() {
+    const selectedPlanId = getQueryParam('plan') || 'pro'
+    const selectedBilling = getQueryParam('billing') === 'monthly' ? 'monthly' : 'annual'
+    const plan = pricingPlans.find((item) => item.id === selectedPlanId) ?? pricingPlans.find((item) => item.id === 'pro') ?? pricingPlans[0]
+    const amount = getPlanAmount(plan, selectedBilling)
+    const monthlyEquivalent = selectedBilling === 'annual' ? amount / 12 : amount
+
+    return (
+      <section className="section prose-page">
+        <p className="eyebrow">Checkout</p>
+        <h1>Confirm your Vibe-Trading planning package.</h1>
+        <div className="checkout-panel">
+          <div>
+            <h2>{plan.name} {selectedBilling}</h2>
+            <p>{plan.subtitle}</p>
+            <div className="price compact">
+              {formatMoney(monthlyEquivalent)}
+              <small>/mo</small>
+            </div>
+            <p className="due">
+              {selectedBilling === 'annual' ? `${formatMoney(amount)} due today, billed yearly` : `${formatMoney(amount)} due today`}
+            </p>
+            <p>
+              Payment is a one-time Polar checkout handoff. It does not automatically renew. Full workspace generation stays locked until payment is verified.
+            </p>
+          </div>
+          <div className="checkout-actions">
+            <button className="button primary full" type="button" onClick={() => startCheckout(plan.id)}>
+              Checkout {plan.name} {selectedBilling}
+            </button>
+            <button className="button full" type="button" onClick={() => go('/pricing/')}>
+              Change package
+            </button>
+          </div>
+        </div>
+        {checkoutState ? <p className="checkout-state">{checkoutState}</p> : null}
+      </section>
+    )
+  }
+
+  function renderCheckoutResult(kind: 'success' | 'cancel') {
+    const isSuccess = kind === 'success'
+    return (
+      <section className="section prose-page">
+        <p className="eyebrow">{isSuccess ? 'Checkout success' : 'Checkout canceled'}</p>
+        <h1>{isSuccess ? 'Checkout received.' : 'Checkout was canceled.'}</h1>
+        <div className="card">
+          <h2>{isSuccess ? 'Next planning step' : 'No payment was completed'}</h2>
+          <p>
+            {isSuccess
+              ? 'Your Polar checkout return was received. Production access still verifies the checkout session before unlocking saved workspace generation, exports, or support handoff.'
+              : 'You can return to pricing, switch billing, or continue using the free sample planner preview.'}
+          </p>
+          <div className="hero-actions">
+            <button className="button primary" type="button" onClick={() => go(isSuccess ? '/docs/' : '/pricing/')}>
+              {isSuccess ? 'Read next steps' : 'Back to pricing'}
+            </button>
+            <button className="button" type="button" onClick={() => go('/')}>
+              Planner preview
+            </button>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   function renderDocs() {
     return (
       <section className="section prose-page">
@@ -519,6 +589,12 @@ function App() {
         return renderPlanner()
       case '/pricing':
         return renderPricing()
+      case '/checkout':
+        return renderCheckout()
+      case '/checkout/success':
+        return renderCheckoutResult('success')
+      case '/checkout/cancel':
+        return renderCheckoutResult('cancel')
       case '/docs':
         return renderDocs()
       case '/faq':

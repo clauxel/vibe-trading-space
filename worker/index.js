@@ -293,6 +293,8 @@ function getCanonicalRedirectResponse(request, env) {
   const canonicalOrigin = getConfiguredOrigins(env)[0] || defaultOrigin
   if (!canonicalOrigin) return null
   const requestUrl = new URL(request.url)
+  const localHosts = new Set(['localhost', '127.0.0.1', '0.0.0.0', '::1'])
+  if (localHosts.has(requestUrl.hostname)) return null
   const canonicalUrl = new URL(canonicalOrigin)
   const acceptedHosts = new Set([canonicalUrl.hostname, `www.${canonicalUrl.hostname}`])
   if (

@@ -587,6 +587,28 @@ pre {
   margin-bottom: 0;
 }
 
+.checkout-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 18px;
+  align-items: start;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.checkout-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.price.compact {
+  margin-top: 8px;
+  font-size: 36px;
+}
+
 .callout {
   display: flex;
   gap: 12px;
@@ -646,7 +668,8 @@ pre {
   .hero,
   .split,
   .doc-grid,
-  .pricing-grid {
+  .pricing-grid,
+  .checkout-panel {
     grid-template-columns: 1fr;
   }
 
