@@ -44,3 +44,10 @@ Status: production_complete
 - Deployment/Git status: local code build completed; production remains blocked pending Cloudflare/D1/Polar/domain/browser/search/docs verification.
 - Follow-ups: create/verify D1 binding, configure Polar checkout URLs, deploy to Cloudflare, verify apex/www HTTPS, submit sitemap, build independent public docs repo, and run 3/6-day indexing/analytics review.
 - Prevention note: the first scaffold copy included an old encrypted local secret filename from the source skeleton; it was removed immediately. Future scaffold copies for new sites should exclude `.wrangler`, `data/secrets`, `pricing`, `resources`, `dist`, `.git`, and `node_modules` up front.
+
+## 2026-07-01 - MiroFish contextual reference
+
+- Added one contextual related-resource link to MiroFish AI Simulator with UTM tracking for vibe-trading.space.
+- Placement rule: secondary Resources/Source context when available, otherwise the homepage tail; no hero, nav, pricing, checkout, or primary CTA links were changed.
+- SEO safety: brand anchor only, one link per canonical site surface, visible editorial context, and no keyword-stuffed footer/sitewide block.
+- Verification pending: run the site build/deploy workflow and live link checks after all portfolio edits are applied.
