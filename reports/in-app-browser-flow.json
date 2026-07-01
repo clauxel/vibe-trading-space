@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "siteKey": "vibe_trading_space",
   "domain": "vibe-trading.space",
-  "collectedAt": "2026-06-30T23:47:46.079Z",
+  "collectedAt": "2026-07-01T08:57:38+08:00",
   "browser": "codex_in_app_browser_local",
   "status": "pass",
   "server": "http://127.0.0.1:5177/",
@@ -74,7 +74,47 @@
     "h1": "Page not found"
   },
   "completionLedger": [
-    { "id": "browser_flow", "status": "pass", "evidence": "Homepage, unpaid feature entry, pricing annual/monthly, checkout page, config blocker, and 404 were clicked or loaded in Codex in-app browser" }
+    {
+      "id": "browser_flow_local",
+      "status": "pass",
+      "evidence": "Homepage, unpaid feature entry, pricing annual/monthly, checkout page, config blocker, and 404 were clicked or loaded in Codex in-app browser locally"
+    },
+    {
+      "id": "browser_flow_production_fallback",
+      "status": "pass",
+      "evidence": "Production Chrome CDP fallback verified home, pricing, checkout handoff to Polar, and 404 after in-app browser external timeout"
+    }
   ],
-  "no_early_final_until_all_mandatory_gates_pass": true
+  "no_early_final_until_all_mandatory_gates_pass": true,
+  "browserAutomationSkillApplied": true,
+  "selectedBrowserRoute": "chrome_headless_cdp_production_fallback_after_codex_in_app_browser_external_timeout",
+  "productionBrowserSmoke": {
+    "status": "pass",
+    "report": "reports/browser-smoke/browser-smoke-report.json",
+    "home": "https://vibe-trading.space/",
+    "pricing": "https://vibe-trading.space/pricing/",
+    "checkoutHosted": "https://polar.sh/checkout/[redacted]",
+    "notFound": "https://vibe-trading.space/not-a-real-page"
+  },
+  "inAppBrowserProductionAttempt": {
+    "status": "blocked_with_evidence",
+    "evidence": "Codex in-app browser external navigation timed out at about:blank; browser automation Skill fallback used Chrome CDP and passed the production smoke flow."
+  },
+  "fallbackChainAudit": [
+    {
+      "step": "codex_in_app_browser_external_navigation",
+      "status": "blocked_with_evidence",
+      "evidence": "Timed out at about:blank for https://vibe-trading.space/"
+    },
+    {
+      "step": "chrome_headless_cdp_production_flow",
+      "status": "pass",
+      "evidence": "Home, pricing Annual/Monthly, Polar checkout start, and 404 were verified with screenshots and redacted checkout URL."
+    },
+    {
+      "step": "http_api_runtime_checkout_analytics",
+      "status": "pass",
+      "evidence": "prod:inspect verified runtime cloudflare_d1, planner 402, checkout Polar URL, analytics persisted:true."
+    }
+  ]
 }

@@ -15,7 +15,7 @@ POLAR_PAY_CURRENCY = "USD"
 [[d1_databases]]
 binding = "DB"
 database_name = "vibe_trading_space"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "6aa01498-52da-43eb-91fb-234b9f7f6f27"
 
 [build]
 command = "npm run build:worker"
@@ -24,7 +24,6 @@ watch_dir = "src"
 [assets]
 directory = "./dist"
 binding = "ASSETS"
+html_handling = "none"
 not_found_handling = "single-page-application"
-run_worker_first = [
-  "/*"
-]
+run_worker_first = true

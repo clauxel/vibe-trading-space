@@ -18,7 +18,7 @@ function createGetRequest(path) {
   return new Request(`https://vibe-trading.space${path}`)
 }
 
-function createAssetEnv() {
+function createAssetEnv(options = {}) {
   const indexHtml = `<!doctype html>
 <html lang="en">
 <head>
@@ -39,7 +39,13 @@ function createAssetEnv() {
     ASSETS: {
       fetch(request) {
         const url = new URL(request.url)
+        if (url.pathname === '/' && options.rootRedirect) {
+          return Promise.resolve(new Response(null, { status: 307, headers: { Location: '/' } }))
+        }
         if (url.pathname === '/index.html') {
+          return Promise.resolve(new Response(indexHtml, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }))
+        }
+        if (options.spaFallback) {
           return Promise.resolve(new Response(indexHtml, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }))
         }
         return Promise.resolve(new Response('not found', { status: 404, headers: { 'Content-Type': 'text/html; charset=utf-8' } }))
@@ -152,4 +158,20 @@ test('known SPA routes render as 200 but unknown routes keep a real 404', async 
   assert.match(missingHtml, /Page not found \| Vibe-Trading Space/)
   assert.match(missingHtml, /<meta name="robots" content="noindex,follow">/)
   assert.match(missingHtml, /<link rel="canonical" href="https:\/\/vibe-trading\.space\/missing-page">/)
+})
+
+test('asset binding root redirect still serves the SPA shell', async () => {
+  const response = await handleCloudflareRequest(createGetRequest('/'), createAssetEnv({ rootRedirect: true }))
+  assert.equal(response.status, 200)
+  const html = await response.text()
+  assert.match(html, /Vibe-Trading Space/)
+  assert.equal(response.headers.get('Location'), null)
+})
+
+test('unknown routes stay 404 when assets use SPA fallback', async () => {
+  const response = await handleCloudflareRequest(createGetRequest('/not-a-real-page'), createAssetEnv({ spaFallback: true }))
+  assert.equal(response.status, 404)
+  const html = await response.text()
+  assert.match(html, /Page not found \| Vibe-Trading Space/)
+  assert.match(html, /<meta name="robots" content="noindex,follow">/)
 })

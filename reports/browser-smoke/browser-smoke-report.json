@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-07-01T00:44:32.021Z",
+  "browser": "chrome_headless_cdp_production",
+  "status": "pass",
+  "domain": "vibe-trading.space",
+  "home": {
+    "url": "https://vibe-trading.space/",
+    "title": "Vibe-Trading Space - Safer AI Trading Research Run Planner",
+    "h1": "Turn a trading hunch into a safer Vibe-Trading run plan before you launch it.",
+    "hasParking": false,
+    "buttons": [
+      "View packages",
+      "Read planner docs",
+      "Generate full workspace pack",
+      "Privacy",
+      "Terms",
+      "Changelog"
+    ]
+  },
+  "pricingAnnual": {
+    "url": "https://vibe-trading.space/pricing/",
+    "title": "Vibe-Trading Space - Safer AI Trading Research Run Planner",
+    "h1": "Choose a Vibe-Trading planning package.",
+    "activeBilling": "Annual",
+    "checkoutButtons": [
+      "Checkout Starter annual",
+      "Checkout Pro annual",
+      "Checkout Enterprise annual"
+    ],
+    "dueTexts": [
+      "$54 due today, billed yearly",
+      "$174 due today, billed yearly",
+      "$354 due today, billed yearly"
+    ]
+  },
+  "pricingMonthly": {
+    "activeBilling": "Monthly",
+    "checkoutButtons": [
+      "Checkout Starter monthly",
+      "Checkout Pro monthly",
+      "Checkout Enterprise monthly"
+    ],
+    "dueTexts": [
+      "$9 due today",
+      "$29 due today",
+      "$59 due today"
+    ]
+  },
+  "checkout": {
+    "url": "https://polar.sh/checkout/[redacted]",
+    "title": "Clauxel | Vibe-Trading Space Pro monthly",
+    "hostedCheckout": true,
+    "evidence": "Strict Chrome CDP wait reached Polar hosted checkout; checkout identifier redacted."
+  },
+  "notFound": {
+    "url": "https://vibe-trading.space/not-a-real-page",
+    "title": "Page not found | Vibe-Trading Space",
+    "h1": "Page not found",
+    "robots": "noindex,follow"
+  },
+  "screenshots": [
+    "reports/browser-smoke/home-desktop.png",
+    "reports/browser-smoke/pricing-desktop.png"
+  ],
+  "inAppBrowserProductionAttempt": {
+    "status": "blocked_with_evidence",
+    "evidence": "Codex in-app browser external navigation timed out at about:blank; Chrome headless CDP production smoke passed."
+  },
+  "checkoutStrictWait": {
+    "status": "pass",
+    "url": "https://polar.sh/checkout/[redacted]",
+    "title": "Clauxel | Vibe-Trading Space Pro monthly"
+  }
+}

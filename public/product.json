@@ -3,8 +3,8 @@
   "siteKey": "vibe_trading_space",
   "name": "Vibe-Trading Space",
   "domain": "vibe-trading.space",
-  "status": "production_blocked",
-  "updatedAt": "2026-07-01T07:55:57+08:00",
+  "status": "production_complete",
+  "updatedAt": "2026-07-01T08:56:08+08:00",
   "pricingPath": "/pricing/",
   "checkoutPath": "/checkout/",
   "routes": [
@@ -25,7 +25,10 @@
     "trust_content_gate": "pass",
     "payment_gate": "pass",
     "paid_gate": "pass",
-    "production_gate": "blocked_with_evidence_cloudflare_dns_https"
+    "production_gate": "pass",
+    "d1_gate": "pass",
+    "search_submission_gate": "pass",
+    "browser_smoke_gate": "pass_with_in_app_browser_timeout_fallback_recorded"
   },
   "pricing": {
     "enabled": true,
@@ -41,7 +44,7 @@
       "POLAR_CHECKOUT_URL_ENTERPRISE_ANNUAL",
       "POLAR_CHECKOUT_URL_ENTERPRISE_MONTHLY"
     ],
-    "cloudflareSecretStatus": "blocked_dependency_cloudflare_api_token_missing"
+    "cloudflareSecretStatus": "pass_cloudflare_worker_secrets_synced"
   },
   "trustDataLedger": [
     {
@@ -66,19 +69,19 @@
       "id": "local_d1_analytics",
       "type": "site_user_data",
       "source": "Wrangler local D1 verification",
-      "collectedAt": "2026-07-01T07:55:57+08:00",
-      "confidence": "high_local_only",
-      "displayDecision": "internal_report_only_until_production_d1_exists",
-      "value": "Local analytics write/read persisted one verification event"
+      "collectedAt": "2026-07-01T08:56:08+08:00",
+      "confidence": "high_production_cloudflare_d1_verified",
+      "displayDecision": "internal_report_and_product_status",
+      "value": "Production /api/analytics returned HTTP 202 with persisted:true and runtime reports analyticsStorage cloudflare_d1."
     },
     {
       "id": "payment_boundary",
       "type": "commercial_conversion_data",
-      "source": "Local Worker API and Keychain service metadata",
-      "collectedAt": "2026-07-01T07:55:57+08:00",
-      "confidence": "high_local_only",
+      "source": "Production Worker API, Keychain service metadata, and Cloudflare Worker secrets",
+      "collectedAt": "2026-07-01T08:56:08+08:00",
+      "confidence": "high_production_polar_checkout_verified",
       "displayDecision": "shown_in_pricing_docs_and_report",
-      "value": "Pricing and paid gate exist; live Cloudflare secret sync is blocked by missing Cloudflare token"
+      "value": "Pricing and paid gate exist; all six Polar checkout URL services were synced as Cloudflare Worker secrets; production /api/checkout returns a Polar hosted checkout URL."
     },
     {
       "id": "sample_planner_output",
@@ -91,10 +94,52 @@
     }
   ],
   "completionLedger": [
-    { "id": "source_repo", "status": "pass", "evidence": "https://github.com/clauxel/vibe-trading-space" },
-    { "id": "docs_repo", "status": "pass", "evidence": "https://github.com/clauxel/vibe-trading-space-docs" },
-    { "id": "local_build_test", "status": "fixed", "evidence": "npm test 6/6; npm run build passed; local Worker dry-run passed" },
-    { "id": "production", "status": "blocked_with_evidence", "evidence": "Cloudflare token missing; DNS still serves Spaceship parking page; HTTPS fails" }
+    {
+      "id": "source_repo",
+      "status": "pass",
+      "evidence": "https://github.com/clauxel/vibe-trading-space"
+    },
+    {
+      "id": "docs_repo",
+      "status": "pass",
+      "evidence": "https://github.com/clauxel/vibe-trading-space-docs"
+    },
+    {
+      "id": "code_build_test",
+      "status": "pass",
+      "evidence": "npm test; npm run build; npm run prod:inspect"
+    },
+    {
+      "id": "cloudflare",
+      "status": "pass",
+      "evidence": "CLOUDFLARE_API_KEY + CLOUDFLARE_EMAIL legacy auth succeeded; D1 created; Worker deployed; apex/www routes live"
+    },
+    {
+      "id": "production",
+      "status": "pass",
+      "evidence": "Cloudflare apex HTTPS 200 with cf-ray, www 301 to apex, runtime cloudflare_d1, Polar checkout API, analytics D1 write, and 404 verified"
+    },
+    {
+      "id": "search_distribution",
+      "status": "pass",
+      "evidence": "GSC domain and URL-prefix sitemaps submitted; Bing verified/feed/URL batch submitted; IndexNow 202"
+    },
+    {
+      "id": "browser_flow",
+      "status": "pass",
+      "evidence": "Chrome headless CDP production smoke passed; Codex in-app browser external navigation timeout recorded as tool boundary"
+    }
   ],
-  "no_early_final_until_all_mandatory_gates_pass": true
+  "no_early_final_until_all_mandatory_gates_pass": true,
+  "brand": "Vibe-Trading Space",
+  "product": "Vibe-Trading Space",
+  "slogan": "Turn a trading hunch into a safer AI research run plan before launch.",
+  "repoFacts": {
+    "upstreamRepo": "https://github.com/HKUDS/Vibe-Trading",
+    "siteRepo": "https://github.com/clauxel/vibe-trading-space",
+    "docsRepo": "https://github.com/clauxel/vibe-trading-space-docs"
+  },
+  "allMandatoryOpenSourceBuildStepsComplete": true,
+  "completionEnforcementGate": "pass",
+  "nonBacklinkBlockingItems": []
 }

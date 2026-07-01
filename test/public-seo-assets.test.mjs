@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -32,4 +32,9 @@ test('static SEO assets point at the live Vibe-Trading Space origin', () => {
   for (const url of expectedUrls) {
     assert.match(sitemapXml, new RegExp(`<loc>${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</loc>`))
   }
+})
+
+test('Workers Assets build does not ship Pages redirects', () => {
+  assert.equal(existsSync(join(projectRoot, 'public', '_redirects')), false)
+  assert.equal(existsSync(join(projectRoot, 'public', '_routes.json')), false)
 })

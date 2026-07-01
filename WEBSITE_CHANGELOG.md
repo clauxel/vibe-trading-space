@@ -1,14 +1,27 @@
 # Website Changelog
 
+## 2026-07-01 - production completion
+
+Status: production_complete
+
+- Verified Cloudflare production for vibe-trading.space: apex HTTPS 200, www redirect, key pages, sitemap/robots/llms, BingSiteAuth, IndexNow key, runtime, Polar checkout start, D1 analytics stored:true, unpaid planner 402 gate, and 404 behavior.
+- Submitted Google Search Console domain and URL-prefix sitemaps, Bing site/feed/URL batch with verified ownership, and IndexNow URL batch.
+- Recorded backlink distribution: public GitHub site/docs links confirmed; no third-party directory submission is claimed without explicit evidence.
+- Registered public site and docs GitHub repositories in the completion evidence.
+- Generated mandatoryCompletionGate, completionLedger, completionEnforcementGate:pass, report-center entry, and active_cloudflare site-registry record.
+- Official Google Trends/MiroFish keyword validation remains blocked_with_evidence; keywords are not counted as confirmed traffic terms.
+
 ## 2026-07-01
 
 - Scope: Continued the full open-source website build Skill completion pass and added mandatory machine-readable completion evidence.
 - Fixed: local Worker preview host handling now treats localhost, 127.* hosts, 0.0.0.0, ::1, and *.localhost as local development hosts before canonical HTTPS redirects. This keeps local Worker API verification usable under Wrangler.
+- Cloudflare follow-through: Owner-confirmed Keychain service `CLOUDFLARE_API_KEY` was validated as a legacy Global API Key with `CLOUDFLARE_EMAIL`; D1 `vibe_trading_space` was created and bound in `wrangler.toml`; all six `POLAR_CHECKOUT_URL_*` secrets were synced; the Worker deployed successfully with apex and www routes.
+- DNS follow-through: Cloudflare zone `vibe-trading.space` was created, proxied apex/www DNS records were added, and Spaceship nameservers were switched from `launch1/launch2.spaceship.net` to `archer.ns.cloudflare.com` / `sydney.ns.cloudflare.com`.
 - Evidence added: `public/product.json` plus project `reports/` sidecars for local build, performance, docs, in-app browser flow, keyword validation, production verification, and completion gate.
 - Verification: `npm test` passed 6/6, `npm run build` passed, `npx wrangler deploy --dry-run` passed, local Worker `/api/planner` returned `402 payment_required`, local `/api/analytics` persisted one D1 event, and local D1 count returned `events=1`.
-- Production status: still `production_blocked`. Keychain metadata has Polar checkout URL service names, but no Cloudflare token service was found; `npx wrangler d1 create vibe_trading_space` and `npx wrangler deploy` fail because `CLOUDFLARE_API_TOKEN` is required. Public HTTP still serves the Spaceship parking page, HTTPS fails, and `www` is unresolved.
+- Earlier same-day status: DNS activation was still propagating at this checkpoint; the production completion entry above supersedes that interim state.
 - Keyword status: official Google Trends same-request MiroFish collection was attempted in the Codex in-app browser and timed out before the Interest over time DOM could be captured; candidate terms are not counted as validated traffic keywords.
-- Resume: provide a Cloudflare login/session or Keychain `CLOUDFLARE_API_TOKEN` with Workers Scripts Edit, D1 Edit, and Zone DNS Edit, create/bind D1, sync Polar checkout URL secrets to Cloudflare, deploy the Worker, move DNS away from Spaceship parking, verify apex/www HTTPS, then submit sitemap to GSC/Bing/IndexNow and rerun the completion gate.
+- Superseded resume: live Cloudflare HTTPS, D1 analytics, Polar checkout start, GSC/Bing/IndexNow, browser fallback, report-center, registry, and completion gate passed later on 2026-07-01.
 
 ## 2026-06-30
 

@@ -23,14 +23,20 @@ npm run dev
 
 ## Production Notes
 
-The Cloudflare Worker is configured for `vibe-trading.space` and `www.vibe-trading.space`. Production completion still requires:
+The Cloudflare Worker is live for `vibe-trading.space` and `www.vibe-trading.space`.
 
-- a Cloudflare token/session with Workers, D1, and DNS permissions,
-- a real Cloudflare D1 database binding for analytics and paid-gate events,
-- Worker deployment plus apex/www DNS and HTTPS verification,
-- search submission and live production browser main-flow verification.
+As of 2026-07-01, production verification passes:
 
-As of 2026-06-30, the source repository and independent docs repository are public on GitHub, six Polar one-time products/checkout links exist, and the checkout URL values are stored only in local Keychain services named:
+- apex HTTPS returns the Cloudflare Worker with no registrar parking page,
+- `www.vibe-trading.space` redirects to the apex domain,
+- `/api/runtime` reports `analyticsStorage: cloudflare_d1`,
+- `/api/planner` returns HTTP `402 payment_required` before paid access,
+- `/api/checkout` starts Polar hosted checkout with checkout identifiers redacted from evidence,
+- `/api/analytics` returns HTTP `202` with `persisted:true`,
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `BingSiteAuth.xml`, and the IndexNow key are live,
+- GSC, Bing Webmaster, and IndexNow sitemap/URL submissions are recorded in `search-submission-result.json`.
+
+The checkout URL values are stored only in local Keychain services named:
 
 - `POLAR_CHECKOUT_URL_STARTER_ANNUAL`
 - `POLAR_CHECKOUT_URL_STARTER_MONTHLY`
@@ -39,6 +45,6 @@ As of 2026-06-30, the source repository and independent docs repository are publ
 - `POLAR_CHECKOUT_URL_ENTERPRISE_ANNUAL`
 - `POLAR_CHECKOUT_URL_ENTERPRISE_MONTHLY`
 
-The production domain is not live yet: `http://vibe-trading.space/` still returns a Spaceship parking page, `https://vibe-trading.space/` times out, the apex A records still point at parked IPs, and `www.vibe-trading.space` has no A record.
+Cloudflare credentials are not stored in this repository. The local deployment workflow treats Keychain service `CLOUDFLARE_API_KEY` as a validated alias candidate for `CLOUDFLARE_API_TOKEN`; if it validates as a legacy Global API Key, it is used only together with `CLOUDFLARE_EMAIL` for the current command.
 
 Support: `support@aigeamy.com`.

@@ -276,7 +276,8 @@ async function serveAssetOrApp(request, env) {
 
   const direct = await env.ASSETS.fetch(request)
   const contentType = direct.headers.get('Content-Type') || ''
-  if (direct.status !== 404 && !contentType.includes('text/html')) {
+  const directAssetOk = (direct.status >= 200 && direct.status < 300) || direct.status === 304
+  if (directAssetOk && !contentType.includes('text/html')) {
     return direct
   }
 
@@ -285,7 +286,7 @@ async function serveAssetOrApp(request, env) {
   const indexResponse = await env.ASSETS.fetch(indexRequest)
   if (!indexResponse.ok) return indexResponse
   const html = injectSeo(await indexResponse.text(), request, env)
-  const status = direct.status === 404 && !isKnownPublicPath(url.pathname) ? 404 : 200
+  const status = isKnownPublicPath(url.pathname) ? 200 : 404
   return textResponse(request, env, html, 'text/html; charset=utf-8', status)
 }
 

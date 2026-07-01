@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-07-01T00:40:03.164Z",
+  "domain": "vibe-trading.space",
+  "siteUrl": "https://vibe-trading.space/",
+  "sitemapUrl": "https://vibe-trading.space/sitemap.xml",
+  "sitemap": {
+    "status": "live",
+    "urlCount": 8,
+    "submittedUrls": [
+      "https://vibe-trading.space/",
+      "https://vibe-trading.space/pricing",
+      "https://vibe-trading.space/docs",
+      "https://vibe-trading.space/source-notes",
+      "https://vibe-trading.space/faq",
+      "https://vibe-trading.space/privacy",
+      "https://vibe-trading.space/terms",
+      "https://vibe-trading.space/changelog"
+    ]
+  },
+  "gsc": {
+    "property": "sc-domain:vibe-trading.space",
+    "urlPrefixProperty": "https://vibe-trading.space/",
+    "sitemapUrl": "https://vibe-trading.space/sitemap.xml",
+    "verification": {
+      "status": "verified",
+      "method": "DNS_TXT",
+      "txtAction": "created",
+      "id": "dns%3A%2F%2Fvibe-trading.space"
+    },
+    "domainSitemapStatus": "ok:204",
+    "urlPrefixSitemapStatus": "ok:204",
+    "matchingPropertiesAfter": [
+      {
+        "siteUrl": "https://vibe-trading.space/",
+        "permissionLevel": "siteOwner"
+      },
+      {
+        "siteUrl": "sc-domain:vibe-trading.space",
+        "permissionLevel": "siteOwner"
+      }
+    ],
+    "status": "submitted"
+  },
+  "bing": {
+    "status": "submitted",
+    "siteUrl": "https://vibe-trading.space/",
+    "sitemapUrl": "https://vibe-trading.space/sitemap.xml",
+    "matchingSiteBefore": null,
+    "addSite": {
+      "status": "submitted",
+      "httpStatus": 200,
+      "error": ""
+    },
+    "verifySite": {
+      "status": "submitted",
+      "httpStatus": 200,
+      "error": ""
+    },
+    "submitFeed": {
+      "status": "submitted",
+      "httpStatus": 200,
+      "error": ""
+    },
+    "submitUrlBatch": {
+      "status": "submitted",
+      "httpStatus": 200,
+      "error": ""
+    },
+    "matchingSiteAfter": {
+      "url": "https://vibe-trading.space/",
+      "isVerified": true
+    }
+  },
+  "indexNow": {
+    "status": "submitted",
+    "httpStatus": 202,
+    "keyLocation": "https://vibe-trading.space/590a3ab02487cffe4cfd55b0df769f65.txt",
+    "urlCount": 8,
+    "error": ""
+  }
+}
