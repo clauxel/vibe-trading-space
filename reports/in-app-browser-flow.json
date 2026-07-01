@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "siteKey": "vibe_trading_space",
+  "domain": "vibe-trading.space",
+  "collectedAt": "2026-06-30T23:47:46.079Z",
+  "browser": "codex_in_app_browser_local",
+  "status": "pass",
+  "server": "http://127.0.0.1:5177/",
+  "homeState": {
+    "url": "http://127.0.0.1:5177/",
+    "title": "Vibe-Trading Space - Safer AI Trading Research Run Planner",
+    "h1": "Turn a trading hunch into a safer Vibe-Trading run plan before you launch it.",
+    "hasPlanner": true,
+    "trustCount": 4,
+    "buttons": [
+      "View packages",
+      "Read planner docs",
+      "Generate full workspace pack",
+      "Privacy",
+      "Terms",
+      "Changelog"
+    ]
+  },
+  "gatedPreviewClick": {
+    "clicked": "Generate full workspace pack",
+    "resultUrl": "http://127.0.0.1:5177/pricing/"
+  },
+  "pricingAnnual": {
+    "url": "http://127.0.0.1:5177/pricing/",
+    "h1": "Choose a Vibe-Trading planning package.",
+    "activeBilling": "Annual",
+    "checkoutButtons": [
+      "Checkout Starter annual",
+      "Checkout Pro annual",
+      "Checkout Enterprise annual"
+    ],
+    "dueTexts": [
+      "$54 due today, billed yearly",
+      "$174 due today, billed yearly",
+      "$354 due today, billed yearly"
+    ]
+  },
+  "pricingMonthly": {
+    "activeBilling": "Monthly",
+    "checkoutButtons": [
+      "Checkout Starter monthly",
+      "Checkout Pro monthly",
+      "Checkout Enterprise monthly"
+    ],
+    "dueTexts": [
+      "$9 due today",
+      "$29 due today",
+      "$59 due today"
+    ]
+  },
+  "checkoutConfigState": {
+    "url": "http://127.0.0.1:5177/pricing/",
+    "checkoutStateText": "Checkout is not configured on this deployment yet."
+  },
+  "checkoutPage": {
+    "url": "http://127.0.0.1:5177/checkout/?plan=starter&billing=annual",
+    "h1": "Confirm your Vibe-Trading planning package.",
+    "noRenewal": true,
+    "buttons": [
+      "Checkout Starter annual",
+      "Change package",
+      "Privacy",
+      "Terms",
+      "Changelog"
+    ]
+  },
+  "notFound": {
+    "url": "http://127.0.0.1:5177/missing-page/",
+    "h1": "Page not found"
+  },
+  "completionLedger": [
+    { "id": "browser_flow", "status": "pass", "evidence": "Homepage, unpaid feature entry, pricing annual/monthly, checkout page, config blocker, and 404 were clicked or loaded in Codex in-app browser" }
+  ],
+  "no_early_final_until_all_mandatory_gates_pass": true
+}

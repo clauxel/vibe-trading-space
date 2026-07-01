@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "siteKey": "vibe_trading_space",
+  "domain": "vibe-trading.space",
+  "collectedAt": "2026-07-01T07:55:57+08:00",
+  "status": "local_complete_production_blocked",
+  "commands": [
+    {
+      "command": "npm test",
+      "status": "pass",
+      "evidence": "6/6 node:test subtests passed: SEO assets, paid planner gate, Polar checkout handler, config blocker, local canonical behavior, known/unknown SPA route behavior"
+    },
+    {
+      "command": "npm run build",
+      "status": "pass",
+      "evidence": "dist/index.html 3.94 kB, JS gzip 68.16 kB, CSS gzip 2.47 kB"
+    },
+    {
+      "command": "npx wrangler deploy --dry-run",
+      "status": "pass",
+      "evidence": "Worker and assets package read 17 files, total upload 42.83 KiB / gzip 10.69 KiB"
+    }
+  ],
+  "localValidation": {
+    "buildResult": "pass",
+    "testResult": "pass",
+    "trustDataGate": "pass",
+    "trustContentGate": "pass",
+    "performanceGate": "pass",
+    "paidGate": "pass",
+    "checkoutConfigGate": "blocked_with_evidence_cloudflare_secret_sync_pending"
+  },
+  "upstreamEvidence": {
+    "repo": "https://github.com/HKUDS/Vibe-Trading",
+    "license": "MIT",
+    "package": "vibe-trading-ai",
+    "relationship": "independent hosted workflow planner, not official upstream"
+  },
+  "product": {
+    "pricing": {
+      "enabled": true,
+      "checkoutConfigured": true,
+      "checkoutProvider": "polar",
+      "cloudflareSecretStatus": "blocked_with_evidence_cloudflare_api_token_missing"
+    }
+  },
+  "completionLedger": [
+    { "id": "code_build_test", "status": "fixed", "evidence": "Tests/build/dry-run passed after fixing local Worker preview host handling" },
+    { "id": "trust_data_gate", "status": "pass", "evidence": "public/product.json trustDataLedger contains upstream, local D1, payment boundary, and sample data records" },
+    { "id": "trust_content_gate", "status": "pass", "evidence": "Public pages cover source boundary, payment boundary, docs, FAQ, privacy, terms, changelog, and 404 behavior" }
+  ],
+  "no_early_final_until_all_mandatory_gates_pass": true
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "siteKey": "vibe_trading_space",
+  "domain": "vibe-trading.space",
+  "collectedAt": "2026-07-01T07:55:57+08:00",
+  "status": "pass",
+  "publicGithubDocsRepo": "https://github.com/clauxel/vibe-trading-space-docs",
+  "latestCommit": "f2e35cf Initial Vibe-Trading docs hub",
+  "requiredFiles": [
+    "README.md",
+    "docs/overview.md",
+    "docs/getting-started.md",
+    "docs/concepts.md",
+    "docs/api-or-cli.md",
+    "docs/examples.md",
+    "docs/faq.md",
+    "docs/ai-context.md",
+    "docs/source-map.md",
+    "llms.txt"
+  ],
+  "saasLinkContext": "pass_at_least_three_contextual_links",
+  "officialLinksPlacement": "pass_official_links_in_final_sources_sections",
+  "completionLedger": [
+    { "id": "public_docs_repo", "status": "pass", "evidence": "Independent docs repo exists and required files are present" }
+  ],
+  "no_early_final_until_all_mandatory_gates_pass": true
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "siteKey": "vibe_trading_space",
+  "domain": "vibe-trading.space",
+  "collectedAt": "2026-07-01T07:55:57+08:00",
+  "status": "blocked_with_evidence",
+  "blocker": "blocked_official_google_trends_timeout",
+  "attemptedSource": "browser_dom_official_google_trends",
+  "attemptedUrl": "https://trends.google.com/trends/explore?date=today%2012-m&geo=US&q=mirofish,Vibe%20Trading,AI%20trading%20agent,trading%20agent%20planner,natural%20language%20trading%20backtesting",
+  "attemptResult": "Codex in-app browser Google Trends page attempt timed out after 60 seconds before Interest over time DOM could be captured",
+  "confirmedPrimaryKeywords": 0,
+  "confirmedLongTailKeywords": 0,
+  "candidateKeywords": [
+    { "keyword": "Vibe Trading", "intentGroup": "function", "landingPage": "/", "themeRelevance": "strong", "relativeHeatVsMirofish": "-", "validationState": "blocked_official_google_trends_timeout" },
+    { "keyword": "AI trading agent", "intentGroup": "function", "landingPage": "/", "themeRelevance": "strong", "relativeHeatVsMirofish": "-", "validationState": "blocked_official_google_trends_timeout" },
+    { "keyword": "trading agent planner", "intentGroup": "problem", "landingPage": "/", "themeRelevance": "strong", "relativeHeatVsMirofish": "-", "validationState": "blocked_official_google_trends_timeout" },
+    { "keyword": "natural language trading backtesting", "intentGroup": "tutorial", "landingPage": "/docs/", "themeRelevance": "strong", "relativeHeatVsMirofish": "-", "validationState": "blocked_official_google_trends_timeout" },
+    { "keyword": "MCP trading tools", "intentGroup": "integration", "landingPage": "/docs/", "themeRelevance": "strong", "relativeHeatVsMirofish": "-", "validationState": "blocked_official_google_trends_timeout" }
+  ],
+  "completionLedger": [
+    { "id": "keyword_validation", "status": "blocked_with_evidence", "evidence": "Official Google Trends same-request MiroFish comparison attempt timed out; candidate terms are not counted as validated traffic keywords" }
+  ],
+  "no_early_final_until_all_mandatory_gates_pass": true
+}

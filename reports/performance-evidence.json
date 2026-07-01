@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "siteKey": "vibe_trading_space",
+  "domain": "vibe-trading.space",
+  "collectedAt": "2026-07-01T07:55:57+08:00",
+  "status": "pass",
+  "mode": "local_build_budget",
+  "budgets": {
+    "jsGzipBudgetBytes": 500000,
+    "cssGzipBudgetBytes": 150000,
+    "largestImageBudgetBytes": 1048576
+  },
+  "assets": [
+    { "file": "dist/index.html", "bytes": 3940, "gzipBytes": 1370 },
+    { "file": "dist/assets/index-Bveu_yCY.js", "bytes": 215270, "gzipBytes": 68160 },
+    { "file": "dist/assets/index-CmYhqcTQ.css", "bytes": 8370, "gzipBytes": 2470 },
+    { "file": "dist/upstream-assets/feature-cross-market-data-backtesting.jpg", "bytes": 288845 },
+    { "file": "dist/upstream-assets/feature-multi-agent-trading-teams.jpg", "bytes": 266652 },
+    { "file": "dist/upstream-assets/feature-self-improving-trading-agent.jpg", "bytes": 300693 },
+    { "file": "dist/upstream-assets/feature-shadow-account.jpg", "bytes": 238268 }
+  ],
+  "performanceGate": {
+    "status": "pass",
+    "evidence": "All JS/CSS/image assets are below local completion budgets; production Lighthouse remains blocked until HTTPS production is live"
+  },
+  "completionLedger": [
+    { "id": "performance_gate", "status": "pass", "evidence": "Local build budget pass" }
+  ],
+  "no_early_final_until_all_mandatory_gates_pass": true
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "siteKey": "vibe_trading_space",
+  "domain": "vibe-trading.space",
+  "collectedAt": "2026-07-01T07:55:57+08:00",
+  "status": "production_blocked",
+  "probes": [
+    {
+      "name": "http_apex",
+      "status": "blocked_with_evidence",
+      "evidence": "curl -I http://vibe-trading.space/ returned HTTP 200 from openresty/Spaceship parking infrastructure, not the Vibe-Trading Space Worker"
+    },
+    {
+      "name": "https_apex",
+      "status": "blocked_with_evidence",
+      "evidence": "curl https://vibe-trading.space/ failed with SSL_ERROR_SYSCALL"
+    },
+    {
+      "name": "www_https",
+      "status": "blocked_with_evidence",
+      "evidence": "curl https://www.vibe-trading.space/ failed with SSL_ERROR_SYSCALL"
+    },
+    {
+      "name": "dns_apex",
+      "status": "blocked_with_evidence",
+      "evidence": "A records still resolve to Spaceship parking IPs 34.216.117.25 and 54.149.79.189; www returns ENOTFOUND"
+    },
+    {
+      "name": "cloudflare_auth",
+      "status": "blocked_with_evidence",
+      "evidence": "Keychain metadata search found no CLOUDFLARE_API_TOKEN/CF_API_TOKEN service; wrangler whoami says not authenticated"
+    },
+    {
+      "name": "d1_remote_create",
+      "status": "blocked_with_evidence",
+      "evidence": "npx wrangler d1 create vibe_trading_space exits non-zero because CLOUDFLARE_API_TOKEN is required in non-interactive mode"
+    },
+    {
+      "name": "worker_deploy",
+      "status": "blocked_with_evidence",
+      "evidence": "npx wrangler deploy builds successfully, then exits non-zero because CLOUDFLARE_API_TOKEN is required"
+    },
+    {
+      "name": "worker_dry_run",
+      "status": "pass",
+      "evidence": "npx wrangler deploy --dry-run passed and read 17 files from dist"
+    },
+    {
+      "name": "local_d1_analytics",
+      "status": "pass",
+      "evidence": "Wrangler local /api/analytics accepted and persisted one event; local D1 SELECT COUNT(*) returned events=1"
+    },
+    {
+      "name": "local_paid_gate",
+      "status": "pass",
+      "evidence": "Wrangler local /api/planner returned HTTP 402 payment_required with product-domain pricing and checkout paths"
+    }
+  ],
+  "resumePlan": {
+    "requiredOwnerOrPlatformAction": "Provide Cloudflare login/session or Keychain service CLOUDFLARE_API_TOKEN with Workers Scripts Edit, D1 Edit, and Zone DNS Edit permissions; then move vibe-trading.space DNS from Spaceship parking to Cloudflare Worker routing.",
+    "commands": [
+      "npx wrangler d1 create vibe_trading_space",
+      "update wrangler.toml database_id with the created D1 id",
+      "npx wrangler secret put POLAR_CHECKOUT_URL_STARTER_ANNUAL",
+      "npx wrangler secret put POLAR_CHECKOUT_URL_STARTER_MONTHLY",
+      "npx wrangler secret put POLAR_CHECKOUT_URL_PRO_ANNUAL",
+      "npx wrangler secret put POLAR_CHECKOUT_URL_PRO_MONTHLY",
+      "npx wrangler secret put POLAR_CHECKOUT_URL_ENTERPRISE_ANNUAL",
+      "npx wrangler secret put POLAR_CHECKOUT_URL_ENTERPRISE_MONTHLY",
+      "npx wrangler deploy",
+      "verify https://vibe-trading.space/, https://www.vibe-trading.space/, /pricing/, /checkout/, /api/runtime, /sitemap.xml, /robots.txt, /llms.txt",
+      "submit sitemap to GSC/Bing/IndexNow after live HTTPS passes"
+    ],
+    "expectedSuccessSignal": "HTTPS apex/www serve Vibe-Trading Space, no Spaceship parking content, runtime reports cloudflare_d1, and completion gate has no non-backlink blockers"
+  },
+  "completionLedger": [
+    { "id": "production_verification", "status": "blocked_with_evidence", "evidence": "Cloudflare token/DNS/HTTPS remain blocked after live probes and deploy attempt" }
+  ],
+  "no_early_final_until_all_mandatory_gates_pass": true
+}
